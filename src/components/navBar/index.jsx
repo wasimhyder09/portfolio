@@ -1,8 +1,15 @@
+import {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {FaReact} from 'react-icons/fa'
+import {FaReact, FaBars} from 'react-icons/fa'
+import {HiX} from 'react-icons/hi'
 import {navMenus} from './config'
+import './styles.scss'
 
 const Navbar = () => {
+  const [click, setClick] = useState(false)
+  const handleClick = () => {
+    setClick(!click)
+  }
   return(
     <div>
       <nav className="navbar">
@@ -10,7 +17,7 @@ const Navbar = () => {
           <Link to={'/'} className="navbar__container_log">
             <FaReact size={30} />
           </Link >
-          <ul className="navbar__container__menu">
+          <ul className={click ? "navbar__container__menu active" : "navbar__container__menu"}>
             {
               navMenus.map((item, key)=> (
                 <li key={key} className="navbar__container__menu__item">
@@ -21,6 +28,9 @@ const Navbar = () => {
               ))
             }
           </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            {click ? <HiX size={30}/> : <FaBars size={30} /> }
+          </div>
         </div>
       </nav>
     </div>
