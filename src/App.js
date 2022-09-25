@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useLocation} from 'react-router-dom'
 import Particles from 'react-tsparticles'
 import {loadFull} from 'tsparticles'
 import particlesConfig from './helpers/particlesConfig'
@@ -15,10 +15,13 @@ function App() {
   const particlesInit = async (main) => {
     await loadFull(main)
   }
+  const location = useLocation()
+  const renderJsParticles = location.pathname === '/'
+
   return (
     <div className="App">
-      {/* particle js */}
-      <Particles id="particles" options={particlesConfig} init={particlesInit} />
+
+      {renderJsParticles && <Particles id="particles" options={particlesConfig} init={particlesInit} />}
       {/* navbar component */}
       <Navbar />
       {/* main page content */}
