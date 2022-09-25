@@ -1,4 +1,7 @@
 import {Routes, Route} from 'react-router-dom'
+import Particles from 'react-tsparticles'
+import {loadFull} from 'tsparticles'
+import particlesConfig from './helpers/particlesConfig'
 import Home from './containers/home'
 import About from './containers/about'
 import Contact from './containers/contact'
@@ -9,10 +12,13 @@ import Navbar from './components/navBar'
 import './App.css'
 
 function App() {
+  const particlesInit = async (main) => {
+    await loadFull(main)
+  }
   return (
     <div className="App">
       {/* particle js */}
-
+      <Particles id="particles" options={particlesConfig} init={particlesInit} />
       {/* navbar component */}
       <Navbar />
       {/* main page content */}
