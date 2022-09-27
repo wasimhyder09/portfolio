@@ -9,6 +9,7 @@ import Portfolio from './containers/portfolio'
 import Resume from './containers/resume'
 import Skills from './containers/skills'
 import Navbar from './components/navBar'
+import Theme from './components/theme'
 import './App.scss'
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
   return (
     <div className="App">
       {renderJsParticles && <Particles id="particles" options={particlesConfig} init={particlesInit} />}
-      <div className="App__navbar-wrapper">  
+      <div className="App__navbar-wrapper">
         <Navbar />
       </div>
       <div className="App__main-content-wrapper">
+        <Theme />
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/about" element={<About />} />
