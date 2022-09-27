@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   &__text-wrapper {
     display: flex;
     justify-content: center;
@@ -20,6 +21,40 @@
       overflow: hidden;
       white-space: nowrap;
       animation: typingEffect 2.5s steps(30,end)
+    }
+  }
+  .contact-me {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    &__buttons-wrapper {
+      display: flex;
+      gap: 10px;
+      button, a {
+        text-decoration: none;
+        cursor: pointer;
+        padding: 10px 70px;
+        font-size: 2rem;
+        background: transparent;
+        color: var(--selected-theme-main-color);
+        border: 1.5px solid var(--selected-theme-main-color);
+        border-radius: 4px;
+        font-weight: 500;
+        &:hover {
+          color: #000000;
+          background: var(--selected-theme-main-color);
+        }
+      }
+    }
+    &__socials-wrapper {
+      display: flex;
+      gap: 10px;
+      svg {
+        color: var(--selected-theme-main-color);
+        cursor: pointer;
+      }
     }
   }
 }
