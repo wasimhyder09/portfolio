@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import setTheme from '../../helpers/theme'
 import {ImCog} from 'react-icons/im'
 import './styles.scss'
 const colorsArray = [
@@ -26,6 +27,10 @@ const Theme = () => {
     setCurrentTheme(currentId)
     setToggle(false)
   }
+
+  useEffect(() => {
+    setTheme(currentTheme)
+  }, [currentTheme])
    return(
     <div className={`theme-wrapper ${toggle? "active" : ""}`}>
       <div className="theme-wrapper__toggle-icon">
