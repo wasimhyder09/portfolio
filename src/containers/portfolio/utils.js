@@ -12,7 +12,7 @@ export const portfolioData = [
   },
   {
     sectionId : 3,
-    projectName: 'Youtube',
+    projectName: 'Youtube Video Site',
     projectLink: 'https://youtube.com',
     image: imageTwo
   },

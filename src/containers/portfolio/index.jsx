@@ -7,6 +7,7 @@ import './styles.scss'
 
 const Portfolio = () => {
   const[filterValue, setFilterValue] = useState(1)
+  const[hoveredIndex, setHoveredIndex] = useState(null)
   const handleFilter = (id) => {
     setFilterValue(id)
   }
@@ -23,16 +24,26 @@ const Portfolio = () => {
         <ul className="portfolio__content__filter">
           {
             filterOptions.map((option) => (
-              <li onClick={() => handleFilter(option.id)} key = {`filter${option.id}`}>{option.label}</li>
+              <li className={filterValue === option.id ? 'active' : ''} onClick={() => handleFilter(option.id)} key = {`filter${option.id}`}>{option.label}</li>
             ))
           }
         </ul>
         <div className="portfolio__content__cards">
           {
             filteredPortfolioData.map((item, key) => (
-              <div key = {key} className="portfolio__content__cards__item">
+              <div onMouseEnter={() => setHoveredIndex(key)} onMouseLeave={() => setHoveredIndex(null)} key = {key} className="portfolio__content__cards__item">
                 <div className="portfolio__content__cards__item__img-wrapper">
                   <a href={item.projectLink} target="_blank"><img src={item.image} alt="Project image" /></a>
+                </div>
+                <div className="overlay">
+                  {
+                    hoveredIndex === key && (
+                      <div>
+                        <p>{item.projectName}</p>
+                        <button>Visit</button>
+                      </div>
+                    )
+                  }
                 </div>
               </div>
             ))
