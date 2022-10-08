@@ -24,14 +24,14 @@ const Home = () => {
       >
         <div className="contact-me">
           <div className="contact-me__buttons-wrapper">
-            <button>Hire me</button>
-            <a href="">Download resume</a>
+            <a href="/contact">Hire me</a>
+            <a href="/resume.pdf" target="_blank">Download resume</a>
           </div>
           <div className="contact-me__socials-wrapper">
-            <FaLinkedin size={32} />
-            <FaFacebook size={32} />
-            <FaTwitter size={32} />
-            <FaInstagram size={32} />
+            <a href="https://www.linkedin.com/in/wasim-hyder-250040b1" target="_blank"><FaLinkedin size={32} /></a>
+            <a href="https://facebook.com/wasimhyder09" target="_blank"><FaFacebook size={32} /></a>
+            <a href="https://twitter.com/wasimhyder09" target="_blank"><FaTwitter size={32} /></a>
+            <a href="https://instagram.com/wasimhyder09" target="_blank"><FaInstagram size={32} /></a>
           </div>
         </div>
       </Animate>
